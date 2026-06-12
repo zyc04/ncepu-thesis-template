@@ -16,7 +16,7 @@
 \RequirePackage{etoolbox}
 \RequirePackage{amsmath, amssymb}
 \RequirePackage[amsmath,thmmarks]{ntheorem}  % 定理
-\RequirePackage{graphicx, subcaption}
+\RequirePackage{graphicx}
 \RequirePackage{listings}                    % 代码段
 \RequirePackage{algorithm, algorithmic}    % 算法代码
 \RequirePackage{tikz, pgfplots}              % 绘图
@@ -185,6 +185,7 @@
 }
 \makeatother
 
+\PassOptionsToPackage{table}{xcolor}
 \RequirePackage{xcolor}
 % \definecolor{headercolor}{HTML}{808080} \color{headercolor} 
 \usepackage{fancyhdr}
@@ -335,8 +336,8 @@
   \clearpage
   \tableofcontents
   \pagestyle{plain}
-  % \setcounter{page}{1} % 如需重置页码，取消注释此行
-  % \pagenumbering{arabic} % 如需设置页码格式，取消注释此行
+  \setcounter{page}{1} % 重置页码
+  \pagenumbering{arabic} % 设置页码格式为阿拉伯数字
 }
 
 % ———————————————————————————————————————————
@@ -432,7 +433,7 @@
 \newcommand{\algref}[1]{算法\ref{#1}}
 
 % ---- 参考文献设置 ----- %
-\RequirePackage[sort&compress]{natbib}
+\RequirePackage[numbers,sort&compress]{natbib}
 \setcitestyle{numbers,square,comma}
 
 % 设置参考文献条目之间的间距（紧凑格式，符合1.25行距要求）
@@ -503,7 +504,7 @@
 \numberwithin{figure}{chapter}
 \renewcommand{\thefigure}{\thechapter-\arabic{figure}}
 % 主图标题设置：无冒号、五号字、居中
-\usepackage{caption, subcaption}
+\usepackage{caption}
 \DeclareCaptionLabelFormat{nocaptioncolon}{\zihao{5}图~#2}
 \captionsetup[figure]{
   labelsep=space, 
@@ -519,14 +520,10 @@
   }
   \vspace{-4pt}
 }
-% 子图标签格式：只有右括号
-\renewcommand{\thesubfigure}{\alph{subfigure}}
-% 子图标题设置：悬挂缩进格式，不显示标签
-\captionsetup[subfigure]{
-  labelformat=empty,         % 不显示自动标签
-  format=hang,               % 悬挂格式
-  justification=raggedright, % 左对齐
-  singlelinecheck=false,     % 强制使用悬挂格式
+% 子图标题设置（subfig 宏包）
+\RequirePackage[caption=false]{subfig}
+\captionsetup[subfloat]{
+  labelformat=empty,
   font={normalsize}
 }
 % 子图中英文标题命令（手动添加序号和右括号）
@@ -535,12 +532,7 @@
     \zihao{5}\thesubfigure) #1 
   }\vspace{-6pt}
 }
-% 设置引用时的前缀：包含父图编号和空格
-\makeatletter
-\renewcommand{\p@subfigure}{\thefigure\space}
-\makeatother
-% 子图引用格式
-\renewcommand{\subref}[1]{\ref{#1})}
+% 子图引用前缀设置（由 LyX preamble 中重定义）
 
 % ———————————————————————————————————————————
 % ——————————— 表格样式 ———————————————————————
