@@ -1,0 +1,118 @@
+\documentclass[a4paper, twoside, openany]{NCEPUMaster}
+\usepackage{multirow}
+\usepackage{titlesec}
+\usepackage{amssymb}
+\usepackage{wasysym}
+\usepackage{changepage}
+\usepackage{ifthen}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{adjustbox}
+\usepackage{caption}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\captionsetup[table]{labelsep=space,  }
+\makeatletter
+\renewcommand\bibsection{}
+\makeatother
+\usepackage{longtable}
+%——————————————————————————————————————————
+
+    % % ============================================
+    % % 设置学位类型（二选一）
+    % % ============================================
+    % \mastertype{academic}      % 学术硕士
+    % % ============================================
+    % % 学术硕士信息填写示例
+    % % ============================================
+    % % 中文信息
+    % \ctitlezh{基于机器学习的电力负荷预测研究}  % 中文标题
+    % \cauthorzh{李明}           % 作者姓名
+    % \cadvisorzh{王教授}        % 导师姓名 xxx（副）教授
+    % \cdegreezh{工学硕士}             % 申请学位 xx硕士
+    % \cmajorzh{电气工程}              % 学科专业（学术硕士）
+    % \cschoolzh{电气与电子工程学院}
+    % \cdatezh{2024年6月}
+
+    % % 英文信息
+    % \ctitleen{Research on Power Load Forecasting Based on Machine Learning}
+    % \Ltitle{False} % False: 英文标题过长时使用小2号字体，True: 使用2号字，可根据标题自行设置字号
+    % \cauthoren{Li Ming}   % 作者姓名
+    % \cadvisoren{Prof. Wang}   % 导师姓名
+    % \cdegreeen{Master of Engineering}
+    % \cmajoren{Electrical Engineering}  % 学科专业（学术硕士）
+    % \cschoolen{School of Electrical and Electronic Engineering}
+    % \cdateen{June, 2024}
+
+    % ============================================
+    % 专业硕士信息填写示例（注释掉，根据需要启用）
+    % ============================================
+    \mastertype{professional}  % 先设置为专业硕士
+
+    % 中文信息
+    \ctitlezh{基于机器学习的电力负荷预测研究} % 中文标题
+    \cauthorzh{李明}  % 作者姓名
+    \cadvisorzh{王教授}   % 导师姓名
+    \cmentorzh{张工程师}           % 企业导师（专业硕士）
+    \cdegreezh{工程硕士}           % 申请学位
+    \csubjectzh{电气工程}          % 专业领域（专业硕士）
+    \cclutivationzh{非全日制}      % 学习方式（专业硕士）全日制/非全日制
+    \cschoolzh{电气与电子工程学院}
+    \cdatezh{2024年6月}
+
+    % 英文信息
+    \ctitleen{Research on Power Load Forecasting Based on Machine Learning}
+    \Ltitle{False} % False: 英文标题过长时使用小2号字体，True: 使用2号字，可根据标题自行设置字号
+    \cauthoren{Li Ming}  % 作者姓名
+    \cadvisoren{Prof. Chen}   % 导师姓名
+    \cmentoren{Engineer Wang}      % 企业导师（专业硕士）
+    \cdegreeen{Master of Engineering}   % 申请学位
+    \csubjecten{Electrical Engineering}   % 专业领域（专业硕士）
+    \cclutivationen{Part-time}      % 学习方式（专业硕士）Part-time/Full-time
+    \cschoolen{School of Electrical and Electronic Engineering}
+    \cdateen{June, 2024}
+
+    % 图书分类号
+    \cclc{xxxx}
+    \cudc{xxxx}
+    % 密级
+    \csecretlevel{public}      % 公开（默认）
+  % \csecretlevel{internal}    % 内部
+  % \csecretlevel{secret}      % 秘密
+  % \csecretlevel{confidential}% 机密
+  % \csecretlevel{topsecret}   % 绝密
+
+\begin{document}
+  \maketitlepage            % 封面
+  \makechinainfopage        % 中文信息页
+  \makeenglishinfopage      % 英文信息页
+  \makestatement            % 原创性声明
+  \include{others/abstractzh}  % 中文摘要
+  \include{others/abstracten}  % 英文摘要
+  \contents % 目录
+
+  \listoffiguresandtables  % 新增图表清单
+  \include{others/nomenclature} % 新增符号表（参照官网书写规范中的附录1，采用国家标准规定符号者可略去此表）
+
+
+%%----------- 主体部分 ----------- %%
+  \include{chapters/chapter1}
+  \include{chapters/chapter2}
+  \include{chapters/chapter3}
+  \include{chapters/chapter4}
+  \include{chapters/chapter5}
+  \include{chapters/chapter6}
+
+
+%%----------- 结尾部分 ----------- %%
+  \include{others/ref}       % 参考文献
+  %添加附录
+  \appendix
+  \include{others/appendix}
+  \stopappendix
+
+  \include{others/output}    % 攻读博士学位期间发表的论文及其他成果
+  \include{others/thanks}    % 致谢
+
+
+\end{document}
