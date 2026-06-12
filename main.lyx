@@ -105,6 +105,24 @@
   \vspace{0.5\baselineskip}%
 }
 \makeatother
+
+% ===== 算法环境 =====
+% 强制算法浮动体默认使用顶部放置，与 TeX 版本一致
+\makeatletter
+\renewcommand{\fps@algorithm}{!t}
+\makeatother
+
+% ===== 保持前言页码为罗马数字 =====
+% 重定义 \contents 仅用于配置，不切换页码
+\makeatletter
+\let\origcontents\contents
+\renewcommand{\contents}{%
+  \clearpage
+  \tableofcontents
+  \pagestyle{plain}%
+}
+
+\makeatother
 \end_preamble
 \options a4paper, twoside, openany
 \use_default_options false
@@ -138,7 +156,7 @@
 \spacing single
 \use_hyperref false
 \papersize a4
-\use_geometry false
+\use_geometry true
 \use_package amsmath 1
 \use_package amssymb 1
 \use_package cancel 1
@@ -334,7 +352,7 @@ pagenumbering{Roman}
 \begin_layout Plain Layout
 
 \backslash
-setcounter{page}{1}
+setcounter{page}{0}
 \end_layout
 
 \end_inset
@@ -861,10 +879,29 @@ keyword 1,
 \end_layout
 
 \begin_layout Standard
+\begin_inset ERT
+status open
 
+\begin_layout Plain Layout
+
+\backslash
+clearpage
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+
+\backslash
+pagenumbering{arabic}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+setcounter{page}{1}
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
@@ -1196,9 +1233,8 @@ nolink "false"
 
 \begin_layout Standard
 \begin_inset Float algorithm
-placement t
+placement !t
 alignment document
-wide false
 sideways false
 status open
 
@@ -3269,6 +3305,9 @@ options "tools/gbt7714-numerical"
 \end_inset
 
 
+\end_layout
+
+\begin_layout AppendixStart
 \end_layout
 
 \begin_layout Chapter
