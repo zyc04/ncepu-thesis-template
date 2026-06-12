@@ -1,0 +1,908 @@
+﻿#% Do not delete the line below; configure depends on this
+#  \DeclareLaTeXClass[NCEPUMaster]{NCEPU Master Thesis}
+#  \DeclareCategory{Books}
+# Author: Generated for NCEPUMaster.cls
+#
+# NCEPUMaster.layout — LyX 布局文件
+# 对应华北电力大学硕士学位论文模板 NCEPUMaster.cls
+# 将 cls 中的命令和环境映射为 LyX 所见即所得样式
+
+Format 111
+Input stdclass.inc
+Input numreport.inc
+
+DocBookRoot              book
+DocBookForceAbstract     true
+
+Columns                 1
+Sides                   1
+PageStyle               Headers
+
+Provides algorithm 1
+
+# ---- 默认选项 ----
+ClassOptions
+	Other                 "a4paper,openany"
+End
+
+# ============================================================
+#  章节样式覆盖（匹配 NCEPUMaster.cls 的 ctex 设置）
+# ============================================================
+
+Style Chapter
+	Align                 Center
+	AlignPossible         Center
+	Font
+	  Family              Sans
+	  Series              Bold
+	  Size                Larger
+	EndFont
+End
+
+Style Section
+	Align                 Left
+	AlignPossible         Block, Left
+	Font
+	  Family              Sans
+	  Series              Bold
+	  Size                Large
+	EndFont
+End
+
+Style Subsection
+	Align                 Left
+	AlignPossible         Block, Left
+	Font
+	  Family              Sans
+	  Series              Bold
+	  Size                Normal
+	EndFont
+End
+
+Style Subsubsection
+	Align                 Left
+	AlignPossible         Block, Left
+	Font
+	  Family              Sans
+	  Series              Bold
+	  Size                Normal
+	EndFont
+End
+
+Style Paragraph
+	TopSep                0.7
+	ParSep                0.4
+	Font
+	  Family              Sans
+	  Series              Bold
+	  Shape               Italic
+	  Size                Normal
+	EndFont
+End
+
+Style Chapter*
+	Align                 Center
+	AlignPossible         Center
+End
+
+NoStyle Subparagraph*
+
+# ============================================================
+#  章节结构样式
+# ============================================================
+
+# ---- 无编号章节（带目录条目）----
+Style ChapterStar
+	Margin                Static
+	LatexType             Command
+	LatexName             chapterstar
+	Category              Unnumbered
+	LabelType             No_Label
+	Align                 Center
+	AlignPossible         Center
+	Font
+	  Family              Sans
+	  Series              Bold
+	  Size                Larger
+	EndFont
+End
+
+# ---- 目录 ----
+Style Contents
+	Margin                Static
+	LatexType             Command
+	LatexName             contents
+	Category              FrontMatter
+	InTitle               0
+	KeepEmpty             0
+	TopSep                0
+	BottomSep             0
+	Align                 Center
+	LabelType             No_Label
+End
+
+# ---- 图表清单 ----
+Style ListOfFigsAndTables
+	Margin                Static
+	LatexType             Command
+	LatexName             listoffiguresandtables
+	Category              FrontMatter
+	InTitle               0
+	KeepEmpty             0
+	TopSep                0
+	BottomSep             0
+	Align                 Center
+	LabelType             No_Label
+End
+
+# ---- 附录开始 ----
+Style AppendixStart
+	Margin                Static
+	LatexType             Command
+	LatexName             startappendix
+	Category              BackMatter
+	InTitle               0
+	KeepEmpty             0
+	TopSep                0.5
+	BottomSep             0
+	Align                 Center
+	LabelType             No_Label
+	Font
+	  Family              Sans
+	  Series              Bold
+	  Size                Normal
+	EndFont
+	LabelFont
+	  Family              Sans
+	  Series              Bold
+	  Size                Normal
+	EndFont
+End
+
+# ---- 附录结束 ----
+Style AppendixStop
+	CopyStyle             AppendixStart
+	LatexName             stopappendix
+End
+
+# ============================================================
+#  中英文摘要环境
+# ============================================================
+
+# ---- 中文关键词 ----
+Style KeywordsZH
+	Margin                First_Dynamic
+	LatexType             Command
+	LatexName             lyxzhkeywords
+	InTitle               0
+	LabelSep              xx
+	ParSkip               0.4
+	TopSep                0.3
+	BottomSep             0.3
+	Align                 Center
+	LabelType             Static
+	LabelString           "关键词："
+	LabelFont
+	  Series              Bold
+	  Size                Normal
+	EndFont
+	Font
+	  Family              Roman
+	  Series              Medium
+	  Size                Normal
+	EndFont
+End
+
+# ---- 英文关键词 ----
+Style KeywordsEN
+	CopyStyle             KeywordsZH
+	LatexName             lyxenkeywords
+	LabelString           "Keywords:"
+End
+
+# ---- 中文摘要 ----
+Style AbstractZH
+	Margin                Static
+	LatexType             Environment
+	LatexName             lyxabstractzh
+	Category              FrontMatter
+	InTitle               0
+	NextNoIndent          1
+	LeftMargin            MMM
+	RightMargin           MMM
+	ParIndent             MM
+	ItemSep               0.2
+	ParSep                0.3
+	TopSep                0.7
+	BottomSep             0.7
+	Align                 Block
+	LabelType             No_Label
+	Font
+	  Family              Roman
+	  Series              Medium
+	  Shape               Up
+	  Size                Normal
+	EndFont
+End
+
+# ---- 英文摘要 ----
+Style AbstractEN
+	CopyStyle             AbstractZH
+	LatexName             lyxabstracten
+End
+
+# ============================================================
+#  元数据样式（用户在 LyX 中直接填写，编译时自动代入封面和信息页）
+# ============================================================
+
+# --- 中文论文标题 ---
+Style TitleZH
+	Margin                Static
+	LatexType             Command
+	LatexName             ctitlezh
+	Category              FrontMatter
+	InTitle               1
+	LabelSep              xx
+	ParSkip               0.4
+	TopSep                0.8
+	BottomSep             0.4
+	ParSep                0.7
+	Align                 Center
+	LabelType             Static
+	LabelString           "中文标题："
+	LabelFont
+	  Series              Bold
+	  Size                Normal
+	EndFont
+	Font
+	  Family              Sans
+	  Series              Bold
+	  Size                Normal
+	EndFont
+End
+
+# --- 英文论文标题 ---
+Style TitleEN
+	CopyStyle             TitleZH
+	LatexName             ctitleen
+	LabelString           "英文标题："
+End
+
+# --- 英文标题过长标志 ---
+Style TitleENLong
+	CopyStyle             TitleZH
+	LatexName             Ltitle
+	LabelString           "英文标题过长(True/False)："
+	Font
+	  Family              Roman
+	  Series              Medium
+	  Size                Normal
+	EndFont
+End
+
+# --- 中文作者 ---
+Style AuthorZH
+	CopyStyle             TitleZH
+	LatexName             cauthorzh
+	LabelString           "中文作者："
+	Font
+	  Family              Roman
+	  Series              Medium
+	  Size                Normal
+	EndFont
+	Align                 Center
+End
+
+# --- 英文作者 ---
+Style AuthorEN
+	CopyStyle             AuthorZH
+	LatexName             cauthoren
+	LabelString           "英文作者："
+End
+
+# --- 中文导师 ---
+Style AdvisorZH
+	CopyStyle             AuthorZH
+	LatexName             cadvisorzh
+	LabelString           "中文导师："
+End
+
+# --- 英文导师 ---
+Style AdvisorEN
+	CopyStyle             AuthorZH
+	LatexName             cadvisoren
+	LabelString           "英文导师："
+End
+
+# --- 中文企业导师（专硕）---
+Style MentorZH
+	CopyStyle             AuthorZH
+	LatexName             cmentorzh
+	LabelString           "中文企业导师（仅专硕填写）："
+End
+
+# --- 英文企业导师（专硕）---
+Style MentorEN
+	CopyStyle             AuthorZH
+	LatexName             cmentoren
+	LabelString           "英文企业导师（仅专硕填写）："
+End
+
+# --- 中文申请学位 ---
+Style DegreeZH
+	CopyStyle             AuthorZH
+	LatexName             cdegreezh
+	LabelString           "中文申请学位："
+End
+
+# --- 英文申请学位 ---
+Style DegreeEN
+	CopyStyle             AuthorZH
+	LatexName             cdegreeen
+	LabelString           "英文申请学位："
+End
+
+# --- 中文学科专业（学硕）---
+Style MajorZH
+	CopyStyle             AuthorZH
+	LatexName             cmajorzh
+	LabelString           "中文学科专业（仅学硕填写）："
+End
+
+# --- 英文学科专业（学硕）---
+Style MajorEN
+	CopyStyle             AuthorZH
+	LatexName             cmajoren
+	LabelString           "英文学科专业（仅学硕填写）："
+End
+
+# --- 中文专业领域（专硕）---
+Style SubjectZH
+	CopyStyle             AuthorZH
+	LatexName             csubjectzh
+	LabelString           "中文专业领域（仅专硕填写）："
+End
+
+# --- 英文专业领域（专硕）---
+Style SubjectEN
+	CopyStyle             AuthorZH
+	LatexName             csubjecten
+	LabelString           "英文专业领域（仅专硕填写）："
+End
+
+# --- 中文学习方式（专硕）---
+Style CultivationZH
+	CopyStyle             AuthorZH
+	LatexName             cclutivationzh
+	LabelString           "中文学习方式（仅专硕填写）："
+End
+
+# --- 英文学习方式（专硕）---
+Style CultivationEN
+	CopyStyle             AuthorZH
+	LatexName             cclutivationen
+	LabelString           "英文学习方式（仅专硕填写）："
+End
+
+# --- 中文所在学院 ---
+Style SchoolZH
+	CopyStyle             AuthorZH
+	LatexName             cschoolzh
+	LabelString           "中文所在学院："
+End
+
+# --- 英文所在学院 ---
+Style SchoolEN
+	CopyStyle             AuthorZH
+	LatexName             cschoolen
+	LabelString           "英文所在学院："
+End
+
+# --- 中文答辩日期 ---
+Style DateZH
+	CopyStyle             AuthorZH
+	LatexName             cdatezh
+	LabelString           "中文答辩日期："
+End
+
+# --- 英文答辩日期 ---
+Style DateEN
+	CopyStyle             AuthorZH
+	LatexName             cdateen
+	LabelString           "英文答辩日期："
+End
+
+# --- 国内图书分类号 ---
+Style CLC
+	CopyStyle             AuthorZH
+	LatexName             cclc
+	LabelString           "国内图书分类号："
+End
+
+# --- 国际图书分类号 ---
+Style UDC
+	CopyStyle             AuthorZH
+	LatexName             cudc
+	LabelString           "国际图书分类号："
+End
+
+# --- 密级 ---
+Style SecretLevel
+	CopyStyle             AuthorZH
+	LatexName             csecretlevel
+	LabelString           "密级(public/internal/secret/confidential/topsecret)："
+End
+
+# ============================================================
+#  定理环境（使用 ntheorem，编号按节）
+# ============================================================
+
+Style Theorem
+	LatexType             Environment
+	LatexName             theorem
+	Margin                First_Dynamic
+	TopSep                0.6
+	BottomSep             0.6
+	Align                 Block
+	NextNoIndent          1
+	LabelType             Counter
+	LabelCounter          theorem
+	LabelString           "定理 \thetheorem"
+	LabelSep              M
+	LabelFont
+	  Family              Sans
+	  Series              Bold
+	  Shape               Up
+	EndFont
+	TextFont
+	  Shape               Italic
+	EndFont
+	Argument 1
+	  LabelString "简短说明"
+	  Tooltip "定理的补充说明"
+	EndArgument
+End
+
+Style Definition
+	CopyStyle             Theorem
+	LatexName             definition
+	LabelCounter          definition
+	LabelString           "定义 \thedefinition"
+	TextFont
+	  Shape               Up
+	EndFont
+	Argument 1
+	  LabelString "简短说明"
+	  Tooltip "定义的补充说明"
+	EndArgument
+End
+
+Style Lemma
+	CopyStyle             Theorem
+	LatexName             lemma
+	LabelCounter          lemma
+	LabelString           "引理 \thelemma"
+	Argument 1
+	  LabelString "简短说明"
+	  Tooltip "定理的补充说明"
+	EndArgument
+End
+
+Style Corollary
+	CopyStyle             Theorem
+	LatexName             corollary
+	LabelCounter          corollary
+	LabelString           "推论 \thecorollary"
+	Argument 1
+	  LabelString "简短说明"
+	  Tooltip "定理的补充说明"
+	EndArgument
+End
+
+Style Proposition
+	CopyStyle             Theorem
+	LatexName             proposition
+	LabelCounter          proposition
+	LabelString           "性质 \theproposition"
+	Argument 1
+	  LabelString "简短说明"
+	  Tooltip "定理的补充说明"
+	EndArgument
+End
+
+Style Example
+	CopyStyle             Definition
+	LatexName             example
+	LabelCounter          example
+	LabelString           "例 \theexample"
+	Argument 1
+	  LabelString "简短说明"
+	  Tooltip "定义的补充说明"
+	EndArgument
+End
+
+Style Remark
+	CopyStyle             Definition
+	LatexName             remark
+	LabelCounter          remark
+	LabelString           "注 \theremark"
+	Argument 1
+	  LabelString "简短说明"
+	  Tooltip "定义的补充说明"
+	EndArgument
+End
+
+Style Proof
+	LatexType             Environment
+	LatexName             proof
+	Margin                First_Dynamic
+	TopSep                0.6
+	BottomSep             0.6
+	Align                 Block
+	NextNoIndent          1
+	LabelType              Static
+	LabelString           "证明"
+	LabelSep              M
+	LabelFont
+	  Family              Sans
+	  Series              Bold
+	  Shape               Up
+	EndFont
+	TextFont
+	  Shape               Up
+	EndFont
+	EndLabelType          Box
+End
+
+# ============================================================
+#  特殊环境
+# ============================================================
+
+# ---- 成果列表（悬挂缩进）----
+Style AchievementList
+	LatexType             Item_Environment
+	LatexName             achievementlist
+	Margin                Static
+	LeftMargin            MM
+	ParIndent             MM
+	TopSep                0.4
+	BottomSep             0.4
+	ParSep                0
+	ItemSep               0
+	Align                 Block
+	AlignPossible         Block, Left
+	LabelType             No_Label
+	Font
+	  Family              Roman
+	  Series              Medium
+	  Shape               Up
+	  Size                Normal
+	EndFont
+End
+
+# ---- 加粗段落（首段，段后0.5行）----
+Style BoldParaFirst
+	Margin                Static
+	LatexType             Command
+	LatexName             boldparafirst
+	Category              Unnumbered
+	InTitle               0
+	ParSkip               0.4
+	TopSep                0.7
+	BottomSep             0.3
+	ParSep                0
+	Align                 Block
+	AlignPossible         Block, Left
+	LabelType             No_Label
+	Font
+	  Family              Roman
+	  Series              Bold
+	  Shape               Up
+	  Size                Normal
+	EndFont
+End
+
+# ---- 加粗段落（非首段，段前段后各0.5行）----
+Style BoldPara
+	CopyStyle             BoldParaFirst
+	LatexName             boldpara
+	TopSep                0.5
+	BottomSep             0.5
+End
+
+# ============================================================
+#  图表双语标题样式
+# ============================================================
+
+# ---- 图双语标题 ----
+Style BilingualFigureCaption
+	Margin                Static
+	LatexType             Command
+	LatexName             figcaptioncneng
+	Category              Float
+	InTitle               0
+	ParSkip               0.4
+	TopSep                0.3
+	BottomSep             0.3
+	Align                 Center
+	LabelType             No_Label
+	Font
+	  Family              Roman
+	  Series              Medium
+	  Size                Normal
+	EndFont
+End
+
+# ---- 子图双语标题 ----
+Style BilingualSubfigCaption
+	CopyStyle             BilingualFigureCaption
+	LatexName             subfigcaptioncneng
+End
+
+# ---- 表双语标题 ----
+Style BilingualTableCaption
+	CopyStyle             BilingualFigureCaption
+	LatexName             bilingualtablecaption
+End
+
+# ============================================================
+#  子图 Flex Inset（代替 \begin{subfigure}...\end{subfigure} ERT）
+# ============================================================
+
+InsetLayout Subfigure
+	LyxType               custom
+	LatexType             environment
+	LatexName             lyxsubfigure
+	Decoration            classic
+	LabelString           "子图"
+	MultiPar              true
+	Argument 1
+		LabelString       "位置[t/b]"
+		Tooltip           "可选位置参数: t=顶部对齐, b=底部对齐 (默认为 t)"
+	EndArgument
+	Argument 2
+		Mandatory         1
+		LabelString       "宽度倍率"
+		Tooltip           "宽度比例系数 (最终宽度 = 倍率 × \\textwidth)"
+	EndArgument
+End
+
+
+# ============================================================
+#  算法伪代码样式（替代 algorithmic ERT）
+#  使用 LatexType Command，配合 preamble 中的命令重定义
+#  每个段落生成一个算法命令，嵌套由命令序列隐式维护
+# ============================================================
+
+# ---- 算法参数（PassThru 避免 $ 等特殊字符被转义）----
+Style AlgArg
+	Margin                Static
+	LatexType             Paragraph
+	PassThru              1
+	KeepEmpty             1
+	ParSkip               0
+	TopSep                0
+	BottomSep             0
+	Align                 Block
+	LabelType             No_Label
+	Font
+	  Family              Roman
+	  Series              Medium
+	  Shape               Up
+	  Size                Normal
+	EndFont
+End
+
+Style AlgorithmicBegin
+	LatexType             Command
+	LatexName             algpseudobegin
+	Margin                Static
+	LeftMargin            MMM
+	ParSkip               0
+	TopSep                0.1
+	BottomSep             0
+	Align                 Block
+	LabelType             No_Label
+	KeepEmpty             1
+	Font
+	  Family              Roman
+	  Series              Medium
+	  Shape               Up
+	  Size                Normal
+	EndFont
+PassThru              1
+End
+
+Style AlgorithmicEnd
+	LatexType             Command
+	LatexName             algpseudoend
+	Margin                Static
+	LeftMargin            MMM
+	ParSkip               0
+	TopSep                0
+	BottomSep             0.1
+	Align                 Block
+	LabelType             No_Label
+	KeepEmpty             1
+	Font
+	  Family              Roman
+	  Series              Medium
+	  Shape               Up
+	  Size                Normal
+	EndFont
+	PassThru              1
+End
+
+Style AlgState
+	LatexType             Command
+	LatexName             algstateinner
+	Margin                Static
+	LeftMargin            MMM
+	ParSkip               0.2
+	TopSep                0.1
+	BottomSep             0.1
+	Align                 Block
+	LabelType             No_Label
+	Font
+	  Family              Roman
+	  Series              Medium
+	  Shape               Up
+	  Size                Normal
+	EndFont
+PassThru              1
+End
+
+Style AlgFor
+	LatexType             Command
+	LatexName             FOR
+	Margin                Static
+	LeftMargin            MM
+	ParSkip               0.2
+	TopSep                0.1
+	BottomSep             0.1
+	Align                 Block
+	LabelType             No_Label
+	Argument 1
+		LabelString       "循环条件"
+		Tooltip           "FOR 循环的条件表达式"
+		Mandatory         1
+	EndArgument
+	Font
+	  Family              Sans
+	  Series              Bold
+	  Shape               Up
+	  Size                Normal
+	EndFont
+	KeepEmpty             1
+PassThru              1
+End
+
+Style AlgEndFor
+	LatexType             Command
+	LatexName             algendforinner
+	Margin                Static
+	LeftMargin            MM
+	ParSkip               0.2
+	TopSep                0.1
+	BottomSep             0.1
+	Align                 Block
+	LabelType             No_Label
+	Font
+	  Family              Sans
+	  Series              Bold
+	  Shape               Up
+	  Size                Normal
+	EndFont
+	KeepEmpty             1
+PassThru              1
+End
+
+Style AlgIf
+	LatexType             Command
+	LatexName             IF
+	Margin                Static
+	LeftMargin            MM
+	ParSkip               0.2
+	TopSep                0.1
+	BottomSep             0.1
+	Align                 Block
+	LabelType             No_Label
+	Argument 1
+		LabelString       "条件"
+		Tooltip           "IF 条件表达式"
+		Mandatory         1
+	EndArgument
+	Font
+	  Family              Sans
+	  Series              Bold
+	  Shape               Up
+	  Size                Normal
+	EndFont
+	KeepEmpty             1
+PassThru              1
+End
+
+Style AlgElse
+	LatexType             Command
+	LatexName             algelseinner
+	Margin                Static
+	LeftMargin            MM
+	ParSkip               0.2
+	TopSep                0.1
+	BottomSep             0.1
+	Align                 Block
+	LabelType             No_Label
+	Font
+	  Family              Sans
+	  Series              Bold
+	  Shape               Up
+	  Size                Normal
+	EndFont
+	KeepEmpty             1
+PassThru              1
+End
+
+Style AlgEndIf
+	LatexType             Command
+	LatexName             algendifinner
+	Margin                Static
+	LeftMargin            MM
+	ParSkip               0.2
+	TopSep                0.1
+	BottomSep             0.1
+	Align                 Block
+	LabelType             No_Label
+	Font
+	  Family              Sans
+	  Series              Bold
+	  Shape               Up
+	  Size                Normal
+	EndFont
+	KeepEmpty             1
+PassThru              1
+End
+
+Style AlgWhile
+	LatexType             Command
+	LatexName             WHILE
+	Margin                Static
+	LeftMargin            MM
+	ParSkip               0.2
+	TopSep                0.1
+	BottomSep             0.1
+	Align                 Block
+	LabelType             No_Label
+	Argument 1
+		LabelString       "条件"
+		Tooltip           "WHILE 循环条件表达式"
+		Mandatory         1
+	EndArgument
+	Font
+	  Family              Sans
+	  Series              Bold
+	  Shape               Up
+	  Size                Normal
+	EndFont
+	KeepEmpty             1
+PassThru              1
+End
+
+Style AlgEndWhile
+	LatexType             Command
+	LatexName             algendwhileinner
+	Margin                Static
+	LeftMargin            MM
+	ParSkip               0.2
+	TopSep                0.1
+	BottomSep             0.1
+	Align                 Block
+	LabelType             No_Label
+	Font
+	  Family              Sans
+	  Series              Bold
+	  Shape               Up
+	  Size                Normal
+	EndFont
+	KeepEmpty             1
+	PassThru              1
+End
