@@ -26,3 +26,6 @@ build.log
 # 系统文件
 Thumbs.db
 .DS_Store
+
+# LyX backup files
+*.lyx~
