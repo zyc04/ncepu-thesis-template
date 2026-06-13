@@ -15,19 +15,5 @@ if (-not (Test-Path $NewPdf)) {
     exit 1
 }
 
-Write-Host "=== 对比 main.pdf 与基准文件 main_ref.pdf ===" -ForegroundColor Cyan
-Write-Host ""
-
-$compareResult = compare_pdf --pdf $NewPdf --pdf $RefPdf 2>&1
-$compareResult | ForEach-Object { Write-Host $_ }
-
-Write-Host ""
-
-$diffPages = $compareResult | Select-String "differs|different|not equal"
-if ($diffPages) {
-    Write-Host "!!! 与基准文件存在差异 !!!" -ForegroundColor Red
-    $diffPages | ForEach-Object { Write-Host "   $_" -ForegroundColor Red }
-}
-else {
-    Write-Host "✓ 与基准文件完全一致（无变化）" -ForegroundColor Green
-}
+# 详细对比表格（含图像 + 文本）
+& "$ScriptDir\compare-detail.ps1" -NewPdf $NewPdf -RefPdf $RefPdf

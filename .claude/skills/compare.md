@@ -1,17 +1,17 @@
 ---
 name: compare
-description: 对比 main.pdf 与只读基准文件 main_ref.pdf，逐页显示差异。当用户说"比较pdf"、"对比pdf"、"compare pdf"时触发。
+description: 对比 main.pdf 与只读基准文件 main_ref.pdf，终端显示表格汇总，同时生成 diff_report.md 详细报告。当用户说"比较pdf"、"对比pdf"、"compare pdf"时触发。
 ---
 
 # /compare — 对比 PDF
 
-执行 `compare.ps1` 对比当前 `main.pdf` 与只读基准文件 `main_ref.pdf`：
+执行 `compare.ps1`：
 
 ```powershell
 .claude\scripts\compare.ps1
 ```
 
-## 说明
-- `main_ref.pdf` 是项目根目录下的只读基准文件
-- 当编译后的输出与预期不一致时，用此命令快速定位差异
-- 全部一致显示"✓ 与基准文件完全一致"，有差异会标红显示具体页码
+## 输出
+
+1. **终端表格** — 逐页对比（图像/文本/差异说明），颜色标识
+2. **`diff_report.md`** — 详细差异报告，含 ref vs new 逐行对比表

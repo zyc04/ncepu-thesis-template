@@ -8,37 +8,39 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## 编译命令
 
-使用 `build.ps1` 一键编译并自动清理临时文件（或说"编译tex"/`/build` 触发 skill）：
+### 一键编译
+
+使用 `build.ps1` 一键编译、自动清理临时文件、逐页对比基准（或说"编译"/"/build"）：
 
 ```powershell
 .claude\scripts\build.ps1
 ```
 
+脚本自动识别源文件类型：
+
+| 存在文件 | 编译方式 |
+|:---------|:---------|
+| `main.lyx` | `lyx --export pdf4`（LyX 调用 XeLaTeX + BibTeX） |
+| `main.tex`（无 .lyx） | xelatex + bibtex 经典 4 步编译 |
+
+无论哪种方式，编译后**自动清理所有临时文件**（`.aux`, `.log`, `.toc`, `.bbl` 等）。
+
 ### 对比 PDF
 
-编译后自动与 `main_ref.pdf` 对比。也可单独执行（说"比较pdf"或 `/compare`）：
+编译后自动与 `main_ref.pdf` 对比（终端表格 + `diff_report.md` 详细报告）。也可单独执行：
 
 ```powershell
 .claude\scripts\compare.ps1
 ```
 
-> `main_ref.pdf` 是项目根目录下的只读基准文件，用于追踪每次编译的输出变化。
-
-手动分步编译（如需排查问题）：
-
-```powershell
-xelatex -interaction=nonstopmode main.tex
-bibtex main
-xelatex -interaction=nonstopmode main.tex
-xelatex -interaction=nonstopmode main.tex
-```
+> `main_ref.pdf` 是项目根目录下的只读基准文件。
 
 ## 入口文件
 
 | 文件 | 用途 |
 |------|------|
-| `main.tex` | **主入口**，通过 `\include{}` 分文件组织各章节 |
-| `main_all.tex` | **合并版**，所有章节内联在一个文件中（可作为后备） |
+| `main.lyx` | **主入口**（LyX 2.5 源文件），所有章节内联于此 |
+| `main.tex` | 由 LyX 导出的 LaTeX 中间文件（仅作参考，不应直接编辑） |
 
 ## 项目结构
 
