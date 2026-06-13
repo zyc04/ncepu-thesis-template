@@ -156,7 +156,7 @@
 \spacing single
 \use_hyperref false
 \papersize a4
-\use_geometry true
+\use_geometry false
 \use_package amsmath 1
 \use_package amssymb 1
 \use_package cancel 1
@@ -909,10 +909,6 @@ setcounter{page}{1}
 绪论
 \end_layout
 
-\begin_layout Standard
-
-\end_layout
-
 \begin_layout Section
 课题背景及研究的目的和意义
 \end_layout
@@ -1233,10 +1229,11 @@ nolink "false"
 
 \begin_layout Standard
 \begin_inset Float algorithm
-placement !t
+placement document
 alignment document
+wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset ERT
@@ -2155,7 +2152,7 @@ placement document
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -2179,6 +2176,7 @@ name "tab:notation"
 \end_layout
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="7" columns="2">
 <features booktabs="true" tabularvalignment="middle">
@@ -2320,7 +2318,7 @@ The power sold to main gird
 </cell>
 </row>
 <row>
-<cell alignment="none" valignment="top" usebox="none">
+<cell alignment="none" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2332,7 +2330,7 @@ The power sold to main gird
 
 \end_inset
 </cell>
-<cell alignment="none" valignment="top" usebox="none">
+<cell alignment="none" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3308,6 +3306,7 @@ options "tools/gbt7714-numerical"
 \end_layout
 
 \begin_layout AppendixStart
+
 \end_layout
 
 \begin_layout Chapter
