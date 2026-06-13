@@ -1,4 +1,4 @@
-﻿#% Do not delete the line below; configure depends on this
+#% Do not delete the line below; configure depends on this
 #  \DeclareLaTeXClass[NCEPUMaster]{NCEPU Master Thesis}
 #  \DeclareCategory{Books}
 # Author: Generated for NCEPUMaster.cls
@@ -235,12 +235,39 @@ End
 #  元数据样式（用户在 LyX 中直接填写，编译时自动代入封面和信息页）
 # ============================================================
 
+# --- 学位类型（学术硕士 / 专业硕士）---
+Style MasterType
+	Margin                Static
+	LatexType             Command
+	LatexName             mastertype
+	Category              基本信息
+	InTitle               1
+	LabelSep              xx
+	ParSkip               0.4
+	TopSep                0.8
+	BottomSep             0.4
+	Align                 Center
+	LabelType             Static
+	LabelString           "学位类型 (academic/professional)："
+	LabelFont
+	  Series              Bold
+	  Size                Normal
+	EndFont
+	Font
+	  Family              Roman
+	  Series              Medium
+	  Size                Normal
+	EndFont
+End
+
+# ========== 基本信息（公共字段）==========
+
 # --- 中文论文标题 ---
 Style TitleZH
 	Margin                Static
 	LatexType             Command
 	LatexName             ctitlezh
-	Category              FrontMatter
+	Category              基本信息
 	InTitle               1
 	LabelSep              xx
 	ParSkip               0.4
@@ -314,25 +341,11 @@ Style AdvisorEN
 	LabelString           "英文导师："
 End
 
-# --- 中文企业导师（专硕）---
-Style MentorZH
-	CopyStyle             AuthorZH
-	LatexName             cmentorzh
-	LabelString           "中文企业导师（仅专硕填写）："
-End
-
-# --- 英文企业导师（专硕）---
-Style MentorEN
-	CopyStyle             AuthorZH
-	LatexName             cmentoren
-	LabelString           "英文企业导师（仅专硕填写）："
-End
-
-# --- 中文申请学位 ---
+# --- 中文申请学位（学硕/专硕名称不同）---
 Style DegreeZH
 	CopyStyle             AuthorZH
 	LatexName             cdegreezh
-	LabelString           "中文申请学位："
+	LabelString           "中文申请学位（学硕→工学硕士，专硕→工程硕士）："
 End
 
 # --- 英文申请学位 ---
@@ -340,48 +353,6 @@ Style DegreeEN
 	CopyStyle             AuthorZH
 	LatexName             cdegreeen
 	LabelString           "英文申请学位："
-End
-
-# --- 中文学科专业（学硕）---
-Style MajorZH
-	CopyStyle             AuthorZH
-	LatexName             cmajorzh
-	LabelString           "中文学科专业（仅学硕填写）："
-End
-
-# --- 英文学科专业（学硕）---
-Style MajorEN
-	CopyStyle             AuthorZH
-	LatexName             cmajoren
-	LabelString           "英文学科专业（仅学硕填写）："
-End
-
-# --- 中文专业领域（专硕）---
-Style SubjectZH
-	CopyStyle             AuthorZH
-	LatexName             csubjectzh
-	LabelString           "中文专业领域（仅专硕填写）："
-End
-
-# --- 英文专业领域（专硕）---
-Style SubjectEN
-	CopyStyle             AuthorZH
-	LatexName             csubjecten
-	LabelString           "英文专业领域（仅专硕填写）："
-End
-
-# --- 中文学习方式（专硕）---
-Style CultivationZH
-	CopyStyle             AuthorZH
-	LatexName             cclutivationzh
-	LabelString           "中文学习方式（仅专硕填写）："
-End
-
-# --- 英文学习方式（专硕）---
-Style CultivationEN
-	CopyStyle             AuthorZH
-	LatexName             cclutivationen
-	LabelString           "英文学习方式（仅专硕填写）："
 End
 
 # --- 中文所在学院 ---
@@ -412,10 +383,81 @@ Style DateEN
 	LabelString           "英文答辩日期："
 End
 
+# ========== 学术硕士专用 ==========
+
+# --- 中文学科专业 ---
+Style MajorZH
+	CopyStyle             AuthorZH
+	LatexName             cmajorzh
+	Category              学术硕士专用
+	LabelString           "[学硕] 中文学科专业："
+End
+
+# --- 英文学科专业 ---
+Style MajorEN
+	CopyStyle             AuthorZH
+	LatexName             cmajoren
+	Category              学术硕士专用
+	LabelString           "[学硕] 英文学科专业："
+End
+
+# ========== 专业硕士专用 ==========
+
+# --- 中文企业导师 ---
+Style MentorZH
+	CopyStyle             AuthorZH
+	LatexName             cmentorzh
+	Category              专业硕士专用
+	LabelString           "[专硕] 中文企业导师："
+End
+
+# --- 英文企业导师 ---
+Style MentorEN
+	CopyStyle             AuthorZH
+	LatexName             cmentoren
+	Category              专业硕士专用
+	LabelString           "[专硕] 英文企业导师："
+End
+
+# --- 中文专业领域 ---
+Style SubjectZH
+	CopyStyle             AuthorZH
+	LatexName             csubjectzh
+	Category              专业硕士专用
+	LabelString           "[专硕] 中文专业领域："
+End
+
+# --- 英文专业领域 ---
+Style SubjectEN
+	CopyStyle             AuthorZH
+	LatexName             csubjecten
+	Category              专业硕士专用
+	LabelString           "[专硕] 英文专业领域："
+End
+
+# --- 中文学习方式 ---
+Style CultivationZH
+	CopyStyle             AuthorZH
+	LatexName             cclutivationzh
+	Category              专业硕士专用
+	LabelString           "[专硕] 中文学习方式："
+End
+
+# --- 英文学习方式 ---
+Style CultivationEN
+	CopyStyle             AuthorZH
+	LatexName             cclutivationen
+	Category              专业硕士专用
+	LabelString           "[专硕] 英文学习方式："
+End
+
+# ========== 其他信息 ==========
+
 # --- 国内图书分类号 ---
 Style CLC
 	CopyStyle             AuthorZH
 	LatexName             cclc
+	Category              其他信息
 	LabelString           "国内图书分类号："
 End
 
@@ -423,6 +465,7 @@ End
 Style UDC
 	CopyStyle             AuthorZH
 	LatexName             cudc
+	Category              其他信息
 	LabelString           "国际图书分类号："
 End
 
@@ -430,6 +473,7 @@ End
 Style SecretLevel
 	CopyStyle             AuthorZH
 	LatexName             csecretlevel
+	Category              其他信息
 	LabelString           "密级(public/internal/secret/confidential/topsecret)："
 End
 
@@ -445,8 +489,7 @@ Style Theorem
 	BottomSep             0.6
 	Align                 Block
 	NextNoIndent          1
-	LabelType             Counter
-	LabelCounter          theorem
+	LabelType             Static
 	LabelString           "定理 \thetheorem"
 	LabelSep              M
 	LabelFont
@@ -466,7 +509,6 @@ End
 Style Definition
 	CopyStyle             Theorem
 	LatexName             definition
-	LabelCounter          definition
 	LabelString           "定义 \thedefinition"
 	TextFont
 	  Shape               Up
@@ -480,7 +522,6 @@ End
 Style Lemma
 	CopyStyle             Theorem
 	LatexName             lemma
-	LabelCounter          lemma
 	LabelString           "引理 \thelemma"
 	Argument 1
 	  LabelString "简短说明"
@@ -491,7 +532,6 @@ End
 Style Corollary
 	CopyStyle             Theorem
 	LatexName             corollary
-	LabelCounter          corollary
 	LabelString           "推论 \thecorollary"
 	Argument 1
 	  LabelString "简短说明"
@@ -502,7 +542,6 @@ End
 Style Proposition
 	CopyStyle             Theorem
 	LatexName             proposition
-	LabelCounter          proposition
 	LabelString           "性质 \theproposition"
 	Argument 1
 	  LabelString "简短说明"
@@ -513,7 +552,6 @@ End
 Style Example
 	CopyStyle             Definition
 	LatexName             example
-	LabelCounter          example
 	LabelString           "例 \theexample"
 	Argument 1
 	  LabelString "简短说明"
@@ -524,7 +562,6 @@ End
 Style Remark
 	CopyStyle             Definition
 	LatexName             remark
-	LabelCounter          remark
 	LabelString           "注 \theremark"
 	Argument 1
 	  LabelString "简短说明"
@@ -557,28 +594,6 @@ End
 # ============================================================
 #  特殊环境
 # ============================================================
-
-# ---- 成果列表（悬挂缩进）----
-Style AchievementList
-	LatexType             Item_Environment
-	LatexName             achievementlist
-	Margin                Static
-	LeftMargin            MM
-	ParIndent             MM
-	TopSep                0.4
-	BottomSep             0.4
-	ParSep                0
-	ItemSep               0
-	Align                 Block
-	AlignPossible         Block, Left
-	LabelType             No_Label
-	Font
-	  Family              Roman
-	  Series              Medium
-	  Shape               Up
-	  Size                Normal
-	EndFont
-End
 
 # ---- 加粗段落（首段，段后0.5行）----
 Style BoldParaFirst
@@ -649,7 +664,7 @@ End
 #  子图 Flex Inset（代替 \begin{subfigure}...\end{subfigure} ERT）
 # ============================================================
 
-InsetLayout Subfigure
+InsetLayout Flex:Subfigure
 	LyxType               custom
 	LatexType             environment
 	LatexName             lyxsubfigure
@@ -666,7 +681,6 @@ InsetLayout Subfigure
 		Tooltip           "宽度比例系数 (最终宽度 = 倍率 × \\textwidth)"
 	EndArgument
 End
-
 
 # ============================================================
 #  算法伪代码样式（替代 algorithmic ERT）

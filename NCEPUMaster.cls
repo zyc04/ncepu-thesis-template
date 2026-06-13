@@ -389,8 +389,8 @@
 % ============================
 \newenvironment{achievementlist}{%
   \begin{list}{}{%
-    % \setlength{\leftmargin}{0pt}      % 整体左边距
-    \setlength{\itemindent}{0pt}      % 条目首行不缩进
+    \setlength{\leftmargin}{2.5em}      % 整体左缩进（文本对齐位置）
+    \setlength{\itemindent}{0pt}      % 条目首行不缩进（[1] 悬挂在 leftmargin 内）
     \setlength{\labelsep}{0.5em}      % 编号与正文间距
     \setlength{\labelwidth}{2em}      % [1] 的宽度
     \setlength{\listparindent}{0pt}

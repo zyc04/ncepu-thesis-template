@@ -29,3 +29,6 @@ Thumbs.db
 
 # LyX backup files
 *.lyx~
+
+# Generated diff report
+diff_report.md
