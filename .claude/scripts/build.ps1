@@ -4,30 +4,29 @@ $ProjectRoot = Resolve-Path (Join-Path $ScriptDir "..\..")
 Set-Location $ProjectRoot
 
 $LogFile = Join-Path $ProjectRoot "build.log"
-$RefPdf = Join-Path $ProjectRoot "main_ref.pdf"
-$PdfFile = Join-Path $ProjectRoot "main.pdf"
+$PdfFile = Join-Path $ProjectRoot "main_master.pdf"
 
 # 判断源文件类型
-if (Test-Path "main.lyx") {
+if (Test-Path "main_master.lyx") {
     $SourceType = "lyx"
-    $SourceFile = "main.lyx"
+    $SourceFile = "main_master.lyx"
 }
-elseif (Test-Path "main.tex") {
+elseif (Test-Path "main_master.tex") {
     $SourceType = "tex"
-    $SourceFile = "main.tex"
+    $SourceFile = "main_master.tex"
 }
 else {
-    Write-Host "错误：未找到 main.lyx 或 main.tex" -ForegroundColor Red
+    Write-Host "错误：未找到 main_master.lyx 或 main_master.tex" -ForegroundColor Red
     exit 1
 }
 
-Write-Host "=== 编译 $SourceFile ===" -ForegroundColor Cyan
+Write-Host "=== 编译硕士论文: $SourceFile ===" -ForegroundColor Cyan
 
 try {
     if ($SourceType -eq "lyx") {
         Write-Host "[1/1] lyx --export pdf4..." -ForegroundColor Yellow -NoNewline
         lyx --export pdf4 $SourceFile *>&1 | Out-File -FilePath $LogFile -Encoding utf8
-        if (-not (Test-Path $PdfFile)) { throw "lyx 编译失败（main.pdf 未生成）" }
+        if (-not (Test-Path $PdfFile)) { throw "lyx 编译失败（main_master.pdf 未生成）" }
         Write-Host " OK" -ForegroundColor Green
     }
     else {
@@ -37,7 +36,7 @@ try {
         Write-Host " OK" -ForegroundColor Green
 
         Write-Host "[2/4] bibtex..." -ForegroundColor Yellow -NoNewline
-        bibtex main *>&1 | Out-File -FilePath $LogFile -Encoding utf8 -Append
+        bibtex main_master *>&1 | Out-File -FilePath $LogFile -Encoding utf8 -Append
         if ($LASTEXITCODE -ne 0) { throw "bibtex 失败" }
         Write-Host " OK" -ForegroundColor Green
 
@@ -51,23 +50,14 @@ try {
         if ($LASTEXITCODE -ne 0) { throw "xelatex 第三遍失败" }
         Write-Host " OK" -ForegroundColor Green
 
-        if (-not (Test-Path $PdfFile)) { throw "xelatex 编译失败（main.pdf 未生成）" }
+        if (-not (Test-Path $PdfFile)) { throw "xelatex 编译失败（main_master.pdf 未生成）" }
     }
 
     Write-Host "清除临时文件..." -ForegroundColor Yellow -NoNewline
-    Get-ChildItem "." -Recurse -Include *.aux,*.log,*.out,*.toc,*.lof,*.lot,*.bbl,*.blg,*.fls,*.fdb_latexmk,*.synctex.gz -ErrorAction SilentlyContinue | Remove-Item -Force
     Remove-Item $LogFile -ErrorAction SilentlyContinue
     Write-Host " OK" -ForegroundColor Green
 
-    Write-Host "=== 编译完成: main.pdf ===" -ForegroundColor Green
-    Write-Host ""
-
-    if (Test-Path $RefPdf) {
-        & "$ScriptDir\compare-detail.ps1" -NewPdf "main.pdf" -RefPdf $RefPdf
-    }
-    else {
-        Write-Host "（跳过对比：未找到 main_ref.pdf 基准文件）" -ForegroundColor Yellow
-    }
+    Write-Host "=== 编译完成: main_master.pdf ===" -ForegroundColor Green
 }
 catch {
     Write-Host " FAILED" -ForegroundColor Red
