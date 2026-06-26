@@ -32,5 +32,8 @@ Thumbs.db
 # LyX backup files
 *.lyx~
 
+# Claude worktrees
+.claude/worktrees/
+
 # Generated diff report
 diff_report.md
