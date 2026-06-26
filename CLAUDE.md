@@ -52,7 +52,6 @@
 │   │   └── others/
 │   └── PhD/                     # ── 博士原始 TeX
 │       ├── NCEPUDoctor.cls
-│       ├── NCEPUDoctor.layout
 │       ├── main.tex             # 整合版
 │       ├── chapters/
 │       └── others/
@@ -92,8 +91,9 @@
 两个样式类都预定义了以下环境：
 
 - **定理类**：`definition`、`theorem`、`lemma`、`corollary`、`proposition`、`example`、`remark`、`proof`
-- **算法类**：`algorithm` + `algorithmic`
-- **图表**：`\figcaptioncneng{}`（中英双语图题）、`\bilingualtablecaption{}`（中英双语表题）、`subfigure` 子图（硕士用 `subfigure` 包 + ERT，博士用 LyX 原生 `subfloat`）
+- **算法类**：`algorithm` + `algorithmic`（ERT 方式插入）
+- **图表**：`\figcaptioncneng{}`（中英双语图题）、`\bilingualtablecaption{}`（中英双语表题）
+- **子图**：两者都用 LyX 原生 `subfloat`；博士额外用 ERT 添加英文图题
 - **长表格**：`longtable` 环境（续表标记 `\thenexttable`），列宽用 `C{比例}` 自定义
 
 ## 核心约束
