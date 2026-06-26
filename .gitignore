@@ -16,12 +16,14 @@
 *.snm
 *.vrb
 
-# 编译输出的 PDF（生成的，非版本控制）
+# 编译输出的 PDF
 main.pdf
-main_all.pdf
+main_master.pdf
+main_doctor.pdf
 
 # 编译日志
 build.log
+build_doctor.log
 
 # 系统文件
 Thumbs.db
